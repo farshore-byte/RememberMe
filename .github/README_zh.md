@@ -1,10 +1,10 @@
 # RememberMe - 记忆增强对话系统
 
-[English](README.md) | [中文](README_zh.md)
+[English Documentation](../README.md) | [中文文档](../README_zh.md)
 
 <div align="center">
 
-![Farshore AI](https://img.shields.io/badge/Farshore-AI-blue?style=for-the-badge&logo=ai&logoColor=white)
+![RememberMe](https://img.shields.io/badge/RememberMe-AI-blue?style=for-the-badge&logo=ai&logoColor=white)
 ![Go](https://img.shields.io/badge/Go-1.19+-00ADD8?style=for-the-badge&logo=go&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4.4+-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
@@ -183,40 +183,67 @@ go build -o openai_main openai_main.go
 
 完整的API文档包含所有微服务接口、请求/响应格式和详细示例，请参考：
 
-**[📖 完整API文档](API_DOCUMENTATION.md)**
+**[📖 完整API文档](../API_DOCUMENTATION.md)**
 
 ### 快速参考
 
-#### 发送消息
+#### 上传消息
 ```http
-POST /api/chat
+POST /memory/upload
 Content-Type: application/json
 Authorization: Bearer {token}
 
 {
-  "message": "用户消息",
-  "session_id": "用户会话ID",
-  "role_prompt": "角色设定",
-  "first_message": "第一句话"
+  "session_id": "string (可选)",
+  "user_id": "string",
+  "role_id": "string",
+  "group_id": "string",
+  "messages": [
+    {
+      "role": "user|assistant",
+      "content": "string"
+    }
+  ]
 }
 ```
 
 #### 查询记忆
 ```http
-POST /api/memory/query
+POST /memory/query
 Content-Type: application/json
 Authorization: Bearer {token}
 
 {
-  "session_id": "用户会话ID",
-  "query": "查询内容"
+  "session_id": "string",
+  "query": "string (可选)"
 }
 ```
 
-#### 清空会话
+#### 应用记忆
 ```http
-DELETE /api/session/{session_id}
+POST /memory/apply
+Content-Type: application/json
 Authorization: Bearer {token}
+
+{
+  "session_id": "string (可选)",
+  "user_id": "string",
+  "role_id": "string",
+  "group_id": "string",
+  "role_prompt": "string",
+  "query": "string"
+}
+```
+
+#### 删除会话
+```http
+DELETE /memory/delete
+Content-Type: application/json
+Authorization: Bearer {token}
+
+{
+  "session_id": "string"
+}
 ```
 
 ### 微服务概览

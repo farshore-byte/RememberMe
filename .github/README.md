@@ -12,7 +12,7 @@
 
 **Intelligent conversations with persistent memory and personalized experiences**
 
-[Features](#features) • [Quick Start](#quick-start) • [Architecture](#architecture) • [API](#api-1) • [Contributing](#contributing-1)
+[Features](#features) • [Quick Start](#quick-start) • [Architecture](#architecture) • [API](#api) • [Contributing](#contributing)
 
 </div>
 
