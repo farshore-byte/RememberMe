@@ -19,6 +19,7 @@
 ## 🚀 Overview
 
 RememberMe is a sophisticated memory-enhanced conversational system that intelligently remembers user interactions, preferences, and key events to deliver personalized and contextually-aware conversations.
+<img width="2553" height="1336" alt="web" src="https://github.com/user-attachments/assets/b4238aac-c459-4dbf-ba41-52e4403c0c94" />
 
 ## Features
 
