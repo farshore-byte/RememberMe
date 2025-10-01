@@ -1,10 +1,10 @@
 # RememberMe - Memory-Enhanced Conversational System
 
-[中文](README_zh.md) | [English](README.md)
+[中文文档](../README_zh.md) | [English Documentation](../README.md)
 
 <div align="center">
 
-![Farshore AI](https://img.shields.io/badge/Farshore-AI-blue?style=for-the-badge&logo=ai&logoColor=white)
+![Farshore](https://img.shields.io/badge/RememberMe-AI-blue?style=for-the-badge&logo=ai&logoColor=white)
 ![Go](https://img.shields.io/badge/Go-1.19+-00ADD8?style=for-the-badge&logo=go&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4.4+-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
@@ -12,15 +12,15 @@
 
 **Intelligent conversations with persistent memory and personalized experiences**
 
-[Features](#✨-key-features) • [Quick Start](#🚀-quick-start) • [Architecture](#🏗️-architecture) • [API](#📚-api-documentation) • [Contributing](#🤝-contributing)
+[Features](#features) • [Quick Start](#quick-start) • [Architecture](#architecture) • [API](#api) • [Contributing](#contributing)
 
 </div>
 
 ## 🚀 Overview
 
-Farshore AI is a sophisticated memory-enhanced conversational system that intelligently remembers user interactions, preferences, and key events to deliver personalized and contextually-aware conversations.
+RememberMe is a sophisticated memory-enhanced conversational system that intelligently remembers user interactions, preferences, and key events to deliver personalized and contextually-aware conversations.
 
-## ✨ Key Features
+## Features
 
 ### 🧠 Intelligent Memory
 - **Persistent Context**: Maintains conversation history across sessions
@@ -40,7 +40,7 @@ Farshore AI is a sophisticated memory-enhanced conversational system that intell
 - **Multi-language**: Built-in Chinese/English support
 - **Clean UI**: Modern, intuitive user interface
 
-## 🏗️ Architecture
+## Architecture
 
 ### Microservices Design
 The system is built with a microservices architecture for scalability and maintainability:
@@ -69,7 +69,7 @@ The system is built with a microservices architecture for scalability and mainta
 - **CSS3** - Modern styling with animations
 - **i18n** - Internationalization support
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -179,44 +179,71 @@ go build -o openai_main openai_main.go
 7. **Access the application**
 Open your browser and navigate to: `http://localhost:8120`
 
-## 📚 API Documentation
+## API
 
 For complete API documentation including all microservices endpoints, request/response formats, and detailed examples, please refer to:
 
-**[📖 Complete API Documentation](API_DOCUMENTATION.md)**
+**[📖 Complete API Documentation](../API_DOCUMENTATION.md)**
 
 ### Quick Reference
 
-#### Send Message
+#### Upload Messages
 ```http
-POST /api/chat
+POST /memory/upload
 Content-Type: application/json
 Authorization: Bearer {token}
 
 {
-  "message": "User message",
-  "session_id": "user_session_id",
-  "role_prompt": "Role configuration",
-  "first_message": "First message"
+  "session_id": "string (optional)",
+  "user_id": "string",
+  "role_id": "string",
+  "group_id": "string",
+  "messages": [
+    {
+      "role": "user|assistant",
+      "content": "string"
+    }
+  ]
 }
 ```
 
 #### Query Memory
 ```http
-POST /api/memory/query
+POST /memory/query
 Content-Type: application/json
 Authorization: Bearer {token}
 
 {
-  "session_id": "user_session_id",
-  "query": "Query content"
+  "session_id": "string",
+  "query": "string (optional)"
 }
 ```
 
-#### Clear Session
+#### Apply Memory
 ```http
-DELETE /api/session/{session_id}
+POST /memory/apply
+Content-Type: application/json
 Authorization: Bearer {token}
+
+{
+  "session_id": "string (optional)",
+  "user_id": "string",
+  "role_id": "string",
+  "group_id": "string",
+  "role_prompt": "string",
+  "query": "string"
+}
+```
+
+#### Delete Session
+```http
+DELETE /memory/delete
+Content-Type: application/json
+Authorization: Bearer {token}
+
+{
+  "session_id": "string"
+}
 ```
 
 ### Microservices Overview
@@ -314,7 +341,7 @@ tail -f logs/topic_summary.log
 tail -f logs/chat_event.log
 ```
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
@@ -347,7 +374,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Built with ❤️ by the Farshore AI Team**
+**Built with ❤️ by the RememberMe Team**
 
 [![GitHub stars](https://img.shields.io/github/stars/farshore-byte/memory-remember?style=social)](https://github.com/farshore-byte/memory-remember/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/farshore-byte/memory-remember?style=social)](https://github.com/farshore-byte/memory-remember/network/members)
