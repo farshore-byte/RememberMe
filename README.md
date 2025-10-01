@@ -4,7 +4,7 @@
 
 <div align="center">
 
-![Farshore](https://img.shields.io/badge/RememberMe-AI-blue?style=for-the-badge&logo=ai&logoColor=white)
+![Farshore](https://img.shields.io/badge/Farshore-AI-blue?style=for-the-badge&logo=ai&logoColor=white)
 ![Go](https://img.shields.io/badge/Go-1.19+-00ADD8?style=for-the-badge&logo=go&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4.4+-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
