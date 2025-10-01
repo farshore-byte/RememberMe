@@ -1,4 +1,4 @@
-# Farshore AI - Memory-Enhanced Conversational System
+# RememberMe - Memory-Enhanced Conversational System
 
 [中文](README_zh.md) | [English](README.md)
 
@@ -12,7 +12,7 @@
 
 **Intelligent conversations with persistent memory and personalized experiences**
 
-[Features](#features) • [Quick Start](#quick-start) • [Architecture](#architecture) • [API](#api) • [Contributing](#contributing)
+[Features](#✨-key-features) • [Quick Start](#🚀-quick-start) • [Architecture](#🏗️-architecture) • [API](#📚-api-documentation) • [Contributing](#🤝-contributing)
 
 </div>
 
