@@ -82,8 +82,8 @@ Farshore AI 是一个先进的记忆增强对话系统，能够智能地记住�
 
 1. **克隆仓库**
 ```bash
-git clone https://github.com/farshore-byte/memory-remember.git
-cd memory-remember
+git clone https://github.com/farshore-byte/RememberMe.git
+cd RememberMe
 ```
 
 2. **配置环境**
@@ -357,8 +357,8 @@ tail -f logs/chat_event.log
 
 ## 📞 联系方式
 
-- 项目主页: [GitHub仓库](https://github.com/farshore-byte/memory-remember)
-- 问题追踪: [GitHub Issues](https://github.com/farshore-byte/memory-remember/issues)
+- 项目主页: [GitHub仓库](https://github.com/farshore-byte/RememberMe)
+- 问题追踪: [GitHub Issues](https://github.com/farshore-byte/RememberMe/issues)
 - 邮箱: contact@farshore.ai
 
 ## 📋 更新日志
@@ -376,8 +376,8 @@ tail -f logs/chat_event.log
 
 **由 Farshore AI 团队用心构建 ❤️**
 
-[![GitHub stars](https://img.shields.io/github/stars/farshore-byte/memory-remember?style=social)](https://github.com/farshore-byte/memory-remember/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/farshore-byte/memory-remember?style=social)](https://github.com/farshore-byte/memory-remember/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/farshore-byte/memory-remember)](https://github.com/farshore-byte/memory-remember/issues)
+[![GitHub stars](https://img.shields.io/github/stars/farshore-byte/RememberMe?style=social)](https://github.com/farshore-byte/RememberMe/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/farshore-byte/RememberMe?style=social)](https://github.com/farshore-byte/RememberMe/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/farshore-byte/RememberMe)](https://github.com/farshore-byte/RememberMe/issues)
 
 </div>

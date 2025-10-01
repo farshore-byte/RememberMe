@@ -82,8 +82,8 @@ The system is built with a microservices architecture for scalability and mainta
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/farshore-byte/memory-remember.git
-cd memory-remember
+git clone https://github.com/farshore-byte/RememberMe.git
+cd RememberMe
 ```
 
 2. **Configure environment**
@@ -357,8 +357,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-- Project Homepage: [GitHub Repository](https://github.com/farshore-byte/memory-remember)
-- Issue Tracker: [GitHub Issues](https://github.com/farshore-byte/memory-remember/issues)
+- Project Homepage: [GitHub Repository](https://github.com/farshore-byte/RememberMe)
+- Issue Tracker: [GitHub Issues](https://github.com/farshore-byte/RememberMe/issues)
 - Email: contact@farshore.ai
 
 ## 📋 Changelog
@@ -374,10 +374,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Built with ❤️ by the RememberMe Team**
+**Built with ❤️ by the FarshoreAI Team**
 
-[![GitHub stars](https://img.shields.io/github/stars/farshore-byte/memory-remember?style=social)](https://github.com/farshore-byte/memory-remember/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/farshore-byte/memory-remember?style=social)](https://github.com/farshore-byte/memory-remember/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/farshore-byte/memory-remember)](https://github.com/farshore-byte/memory-remember/issues)
+[![GitHub stars](https://img.shields.io/github/stars/farshore-byte/RememberMe?style=social)](https://github.com/farshore-byte/RememberMe/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/farshore-byte/RememberMe?style=social)](https://github.com/farshore-byte/RememberMe/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/farshore-byte/RememberMe)](https://github.com/farshore-byte/RememberMe/issues)
 
 </div>
