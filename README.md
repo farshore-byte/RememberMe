@@ -16,13 +16,11 @@
 
 </div>
 
+<img width="2553" height="1311" alt="web" src="https://github.com/user-attachments/assets/d366796f-a7b8-4c7a-a0a7-9ee04bfa9674" />
+
 ## 🚀 Overview
 
 RememberMe is a sophisticated memory-enhanced conversational system that intelligently remembers user interactions, preferences, and key events to deliver personalized and contextually-aware conversations.
-
-
-<img width="2553" height="1311" alt="web" src="https://github.com/user-attachments/assets/d366796f-a7b8-4c7a-a0a7-9ee04bfa9674" />
-
 
 ## Features
 
