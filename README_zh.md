@@ -1,6 +1,6 @@
 # RememberMe - 记忆增强对话系统
 
-[English Documentation](../README.md) | [中文文档](../README_zh.md)
+[English Documentation](./README.md) | [中文文档](./README_zh.md)
 
 <div align="center">
 
