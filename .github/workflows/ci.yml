@@ -1,0 +1,133 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    
+    services:
+      redis:
+        image: redis:6-alpine
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
+      
+      mongodb:
+        image: mongo:4.4
+        options: >-
+          --health-cmd "mongosh --eval 'db.adminCommand(\"ping\")'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 27017:27017
+        env:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: example
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.19'
+        cache: true
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: remember-web/package-lock.json
+
+    - name: Install backend dependencies
+      run: |
+        cd remember
+        go mod download
+
+    - name: Install frontend dependencies
+      run: |
+        cd remember-web
+        npm ci
+
+    - name: Build backend
+      run: |
+        cd remember
+        go build -o server_main server_main.go
+        go build -o messages_main messages_main.go
+        go build -o user_main user_main.go
+        go build -o topic_main topic_main.go
+        go build -o event_main event_main.go
+        go build -o openai_main openai_main.go
+
+    - name: Build frontend
+      run: |
+        cd remember-web
+        npm run build
+
+    - name: Run backend tests
+      run: |
+        cd remember
+        go test ./... -v
+
+    - name: Run frontend tests
+      run: |
+        cd remember-web
+        npm test -- --coverage --watchAll=false
+
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run Go security check
+      uses: securego/gosec@master
+      with:
+        args: ./...
+
+    - name: Run npm audit
+      run: |
+        cd remember-web
+        npm audit --audit-level moderate
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.19'
+
+    - name: Run Go lint
+      run: |
+        cd remember
+        go vet ./...
+        go fmt ./...
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Run ESLint
+      run: |
+        cd remember-web
+        npm run lint

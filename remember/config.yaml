@@ -1,0 +1,39 @@
+#=================================== 配置 ==================================
+
+redis:
+  host: localhost
+  port: 6379
+  db: 2
+  password: ""       # 可为空
+  ssl: false
+
+mongodb:
+  uri: "mongodb://localhost:27017/"
+  tls: false
+  db: "remember"
+
+#
+
+llm:
+  ServiceProvider: "byteplus"
+  api_key: "YOUR_API_KEY_HERE"
+  base_url: "https://ark.ap-southeast.bytepluses.com/api/v3"
+  model_id: "YOUR_MODEL_ID_HERE"
+  temperature: 0.4
+  top_p: 0.8
+  max_new_tokens: 256
+
+feishu:
+  webhook: "YOUR_FEISHU_WEBHOOK_URL_HERE"
+
+auth:
+  token: "YOUR_AUTH_TOKEN_HERE"
+
+server:
+  session_messages: 9120
+  user_poritrait: 9121
+  topic_summary: 9122
+  chat_event: 9123
+  openai: 8344
+  main: 6006
+  web: 8120

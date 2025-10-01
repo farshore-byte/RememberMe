@@ -1,0 +1,132 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"time"
+)
+
+// 测试 convertMessagesToConversations 函数
+func convertMessagesToConversations(messages []interface{}) ([]map[string]interface{}, error) {
+	var conversations []map[string]interface{}
+	
+	// 按顺序处理消息，将连续的 user-assistant 对组合成对话
+	var currentConversation []map[string]interface{}
+	var lastTimestamp int64 = time.Now().UTC() // 默认使用当前时间戳
+	
+	for i, msg := range messages {
+		message, ok := msg.(map[string]interface{})
+		if !ok {
+			return nil, fmt.Errorf("invalid message format at index %d", i)
+		}
+		
+		role, _ := message["role"].(string)
+		content, _ := message["content"].(string)
+		
+		// 尝试获取时间戳，如果没有则使用默认值
+		timestamp := lastTimestamp
+		if ts, ok := message["timestamp"].(float64); ok {
+			timestamp = int64(ts)
+		} else if ts, ok := message["created_at"].(string); ok {
+			// 尝试解析时间字符串
+			if t, err := time.Parse(time.RFC3339, ts); err == nil {
+				timestamp = t.Unix()
+			}
+		}
+		
+		msgData := map[string]interface{}{
+			"role":    role,
+			"content": content,
+		}
+		
+		currentConversation = append(currentConversation, msgData)
+		
+		// 如果是 assistant 消息，或者到达消息列表末尾，则完成当前对话对
+		if role == "assistant" || i == len(messages)-1 {
+			if len(currentConversation) > 0 {
+				conversation := map[string]interface{}{
+					"timestamp": timestamp,
+					"messages":  currentConversation,
+				}
+				conversations = append(conversations, conversation)
+				currentConversation = nil
+			}
+		}
+		
+		lastTimestamp = timestamp
+	}
+	
+	// 处理剩余的消息（如果有）
+	if len(currentConversation) > 0 {
+		conversation := map[string]interface{}{
+			"timestamp": lastTimestamp,
+			"messages":  currentConversation,
+		}
+		conversations = append(conversations, conversation)
+	}
+	
+	return conversations, nil
+}
+
+func main() {
+	// 测试数据：模拟从 session_messages 服务获取的消息
+	testMessages := []interface{}{
+		map[string]interface{}{
+			"role":    "user",
+			"content": "你好",
+			"timestamp": float64(1695700000),
+		},
+		map[string]interface{}{
+			"role":    "assistant",
+			"content": "你好，有什么可以帮助你的？",
+			"timestamp": float64(1695700005),
+		},
+		map[string]interface{}{
+			"role":    "user",
+			"content": "今天天气怎么样？",
+			"timestamp": float64(1695700010),
+		},
+		map[string]interface{}{
+			"role":    "assistant",
+			"content": "今天天气晴朗，温度适宜",
+			"timestamp": float64(1695700015),
+		},
+		map[string]interface{}{
+			"role":    "user",
+			"content": "谢谢你的帮助",
+			"timestamp": float64(1695700020),
+		},
+		map[string]interface{}{
+			"role":    "assistant",
+			"content": "不客气，随时为你服务",
+			"timestamp": float64(1695700025),
+		},
+	}
+
+	fmt.Println("原始消息列表:")
+	rawJSON, _ := json.MarshalIndent(testMessages, "", "  ")
+	fmt.Println(string(rawJSON))
+	fmt.Println()
+
+	// 转换为对话对格式
+	conversations, err := convertMessagesToConversations(testMessages)
+	if err != nil {
+		fmt.Printf("转换失败: %v\n", err)
+		return
+	}
+
+	fmt.Println("转换后的对话对格式:")
+	convJSON, _ := json.MarshalIndent(conversations, "", "  ")
+	fmt.Println(string(convJSON))
+	fmt.Println()
+
+	// 构建最终的请求格式
+	finalRequest := map[string]interface{}{
+		"session_id":    "test_session_123",
+		"conversations": conversations,
+	}
+
+	fmt.Println("最终的 chat_event upload 请求格式:")
+	finalJSON, _ := json.MarshalIndent(finalRequest, "", "  ")
+	fmt.Println(string(finalJSON))
+}

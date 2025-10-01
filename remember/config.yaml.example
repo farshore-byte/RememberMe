@@ -1,0 +1,43 @@
+#=================================== 配置 ==================================
+
+# Redis 配置
+redis:
+  host: localhost
+  port: 6379
+  db: 2
+  password: ""       # Redis密码，可为空
+  ssl: false
+
+# MongoDB 配置
+mongodb:
+  uri: "mongodb://localhost:27017/"
+  tls: false
+  db: "remember"
+
+# 大语言模型配置
+llm:
+  ServiceProvider: "byteplus"  # 可选: "byteplus" 或 "openai"
+  api_key: "YOUR_API_KEY_HERE"  # 替换为您的API密钥
+  base_url: "https://ark.ap-southeast.bytepluses.com/api/v3"  # BytePlus API地址
+  model_id: "YOUR_MODEL_ID_HERE"  # 替换为您的模型ID
+  temperature: 0.4
+  top_p: 0.8
+  max_new_tokens: 256
+
+# 飞书机器人配置（可选）
+feishu:
+  webhook: "YOUR_FEISHU_WEBHOOK_URL_HERE"  # 替换为您的飞书机器人webhook
+
+# API认证配置
+auth:
+  token: "YOUR_AUTH_TOKEN_HERE"  # 替换为您的认证token
+
+# 服务端口配置
+server:
+  session_messages: 9120  # 会话服务端口
+  user_poritrait: 9121    # 用户画像服务端口
+  topic_summary: 9122     # 话题摘要服务端口
+  chat_event: 9123        # 聊天事件服务端口
+  openai: 8344            # OpenAI服务端口
+  main: 6006              # 主服务端口
+  web: 8120               # Web前端端口

@@ -1,0 +1,222 @@
+# ================================================
+# 依赖目录
+# ================================================
+node_modules/
+remember-web/node_modules/
+remember/tools/index_creator/node_modules/
+
+# ================================================
+# Go构建输出
+# ================================================
+remember/bin/
+remember/dist/
+remember/out/
+remember/tools/index_creator/bin/
+remember/tools/index_creator/dist/
+remember/tools/index_creator/out/
+
+
+# ================================
+# Go 编译产物（可执行文件）
+# ================================
+remember/*_main
+remember/*_main.exe
+remember/*.out
+remember/*.o
+
+# ================================
+# Go 模块缓存（保留 go.mod 和 go.sum）
+# ================================
+remember/vendor/
+
+# ================================
+# 日志文件
+# ================================
+logs/
+*.log
+
+# ================================
+# 临时文件
+# ================================
+*.tmp
+*.swp
+*.DS_Store
+Thumbs.db
+
+# ================================
+# IDE 配置文件
+# ================================
+.idea/
+.vscode/
+
+# ================================
+# Node.js 项目文件（remember-web）
+# ================================
+remember-web/node_modules/
+remember-web/dist/
+remember-web/*.log
+remember-web/.env
+
+
+
+# 编译后的二进制文件
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+remember/remember
+remember/tools/index_creator/index_creator
+
+# 测试二进制文件
+*.test
+remember/*.test
+remember/tools/index_creator/*.test
+
+# Go模块缓存
+remember/pkg/
+remember/tools/index_creator/pkg/
+
+# ================================================
+# Node.js构建缓存和输出
+# ================================================
+remember-web/.vite/
+remember-web/dist/
+remember-web/build/
+remember-web/.next/
+
+# ================================================
+# 日志文件
+# ================================================
+*.log
+remember/*.log
+remember-web/*.log
+logs/
+remember/logs/
+remember-web/logs/
+
+# ================================================
+# 运行时数据
+# ================================================
+remember/data/
+remember-web/data/
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ================================================
+# 环境变量文件
+# ================================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+remember/.env
+remember-web/.env
+.env.*.local
+
+# ================================================
+# IDE和编辑器文件
+# ================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-*
+
+# ================================================
+# 操作系统文件
+# ================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ================================================
+# 临时文件
+# ================================================
+*.tmp
+*.temp
+remember/*.tmp
+remember-web/*.tmp
+
+# ================================================
+# 测试和覆盖率报告
+# ================================================
+coverage/
+remember/coverage/
+remember-web/coverage/
+*.lcov
+
+# nyc测试覆盖率
+.nyc_output
+
+# ================================================
+# 依赖锁定文件（根据团队规范决定是否忽略）
+# ================================================
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# ================================================
+# 本地配置文件
+# ================================================
+config/local.yaml
+config/local.json
+remember/config/local.yaml
+remember/config/local.json
+
+# ================================================
+# 数据库文件
+# ================================================
+*.db
+*.sqlite
+*.sqlite3
+*.mongo
+*.mongodb
+
+# ================================================
+# 上传和缓存目录
+# ================================================
+uploads/
+remember/uploads/
+remember-web/uploads/
+
+.cache/
+remember/.cache/
+remember-web/.cache/
+
+# ================================================
+# 包管理器特定文件
+# ================================================
+.pnpm-store/
+.yarn/
+.yarnrc.yml
+
+# ================================================
+# 其他常见忽略项
+# ================================================
+# 压缩文件备份
+*.tar.gz
+*.zip
+*.rar
+
+# 备份文件
+*.bak
+*.backup
+
+# 证书文件（通常包含敏感信息）
+*.pem
+*.key
+*.crt
+*.csr
+
+# 大型数据文件
+*.data
+*.dat
