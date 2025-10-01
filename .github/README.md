@@ -1,6 +1,6 @@
 # RememberMe - Memory-Enhanced Conversational System
 
-[中文](README_zh.md) | [English](README.md)
+[中文文档](README_zh.md) | [English Documentation](README.md)
 
 <div align="center">
 
@@ -12,7 +12,7 @@
 
 **Intelligent conversations with persistent memory and personalized experiences**
 
-[Features](#features) • [Quick Start](#quick-start) • [Architecture](#architecture) • [API](#api) • [Contributing](#contributing)
+[Features](#features) • [Quick Start](#quick-start) • [Architecture](#architecture) • [API](#api-1) • [Contributing](#contributing-1)
 
 </div>
 
@@ -20,7 +20,7 @@
 
 RememberMe is a sophisticated memory-enhanced conversational system that intelligently remembers user interactions, preferences, and key events to deliver personalized and contextually-aware conversations.
 
-## ✨ Key Features
+## Features
 
 ### 🧠 Intelligent Memory
 - **Persistent Context**: Maintains conversation history across sessions
@@ -40,7 +40,7 @@ RememberMe is a sophisticated memory-enhanced conversational system that intelli
 - **Multi-language**: Built-in Chinese/English support
 - **Clean UI**: Modern, intuitive user interface
 
-## 🏗️ Architecture
+## Architecture
 
 ### Microservices Design
 The system is built with a microservices architecture for scalability and maintainability:
@@ -69,7 +69,7 @@ The system is built with a microservices architecture for scalability and mainta
 - **CSS3** - Modern styling with animations
 - **i18n** - Internationalization support
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -179,7 +179,7 @@ go build -o openai_main openai_main.go
 7. **Access the application**
 Open your browser and navigate to: `http://localhost:8120`
 
-## 📚 API Documentation
+## API
 
 For complete API documentation including all microservices endpoints, request/response formats, and detailed examples, please refer to:
 
@@ -187,36 +187,63 @@ For complete API documentation including all microservices endpoints, request/re
 
 ### Quick Reference
 
-#### Send Message
+#### Upload Messages
 ```http
-POST /api/chat
+POST /memory/upload
 Content-Type: application/json
 Authorization: Bearer {token}
 
 {
-  "message": "User message",
-  "session_id": "user_session_id",
-  "role_prompt": "Role configuration",
-  "first_message": "First message"
+  "session_id": "string (optional)",
+  "user_id": "string",
+  "role_id": "string",
+  "group_id": "string",
+  "messages": [
+    {
+      "role": "user|assistant",
+      "content": "string"
+    }
+  ]
 }
 ```
 
 #### Query Memory
 ```http
-POST /api/memory/query
+POST /memory/query
 Content-Type: application/json
 Authorization: Bearer {token}
 
 {
-  "session_id": "user_session_id",
-  "query": "Query content"
+  "session_id": "string",
+  "query": "string (optional)"
 }
 ```
 
-#### Clear Session
+#### Apply Memory
 ```http
-DELETE /api/session/{session_id}
+POST /memory/apply
+Content-Type: application/json
 Authorization: Bearer {token}
+
+{
+  "session_id": "string (optional)",
+  "user_id": "string",
+  "role_id": "string",
+  "group_id": "string",
+  "role_prompt": "string",
+  "query": "string"
+}
+```
+
+#### Delete Session
+```http
+DELETE /memory/delete
+Content-Type: application/json
+Authorization: Bearer {token}
+
+{
+  "session_id": "string"
+}
 ```
 
 ### Microservices Overview
@@ -314,7 +341,7 @@ tail -f logs/topic_summary.log
 tail -f logs/chat_event.log
 ```
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
