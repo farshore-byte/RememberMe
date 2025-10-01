@@ -1,6 +1,6 @@
 # RememberMe - Memory-Enhanced Conversational System
 
-[中文文档](README_zh.md) | [English Documentation](README.md)
+[中文文档](../README_zh.md) | [English Documentation](../README.md)
 
 <div align="center">
 
@@ -183,7 +183,7 @@ Open your browser and navigate to: `http://localhost:8120`
 
 For complete API documentation including all microservices endpoints, request/response formats, and detailed examples, please refer to:
 
-**[📖 Complete API Documentation](API_DOCUMENTATION.md)**
+**[📖 Complete API Documentation](../API_DOCUMENTATION.md)**
 
 ### Quick Reference
 
