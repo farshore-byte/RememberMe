@@ -1,6 +1,6 @@
 # RememberMe - Memory-Enhanced Conversational System
 
-[中文文档](../README_zh.md) | [English Documentation](../README.md)
+[中文文档](./README_zh.md) | [English Documentation](./README.md)
 
 <div align="center">
 
