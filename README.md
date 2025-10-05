@@ -185,7 +185,7 @@ Open your browser and navigate to: `http://localhost:8120`
 
 For complete API documentation including all microservices endpoints, request/response formats, and detailed examples, please refer to:
 
-**[📖 Complete API Documentation](../API_DOCUMENTATION.md)**
+**[📖 Complete API Documentation](./API_DOCUMENTATION.md)**
 
 ### Quick Reference
 
