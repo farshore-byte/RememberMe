@@ -183,7 +183,7 @@ go build -o openai_main openai_main.go
 
 完整的API文档包含所有微服务接口、请求/响应格式和详细示例，请参考：
 
-**[📖 完整API文档](../API_DOCUMENTATION.md)**
+**[📖 完整API文档](./API_DOCUMENTATION.md)**
 
 ### 快速参考
 
